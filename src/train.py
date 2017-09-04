@@ -232,7 +232,7 @@ def train():
             print ("added to the queue")
         if mc.DEBUG_MODE:
           print ("Finished enqueue")
-      except Exception, e:
+      except Exception as e:
         coord.request_stop(e)
 
     sess = tf.Session(config=tf.ConfigProto(allow_soft_placement=True))
@@ -263,7 +263,7 @@ def train():
     run_options = tf.RunOptions(timeout_in_ms=60000)
 
     # try: 
-    for step in xrange(FLAGS.max_steps):
+    for step in range(FLAGS.max_steps):
       if coord.should_stop():
         sess.run(model.FIFOQueue.close(cancel_pending_enqueues=True))
         coord.request_stop()
