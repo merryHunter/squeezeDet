@@ -6,3 +6,4 @@ data/SqueezeNet*
 data/KITTI/
 env/
 logs/
+.idea/
